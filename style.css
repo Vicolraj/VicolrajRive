@@ -333,7 +333,6 @@ section{padding:100px 48px;position:relative;z-index:2;}
   border-radius:20px;overflow:hidden;
   position:relative;cursor:none;
   transition:transform .4s var(--ease-spring),border-color .3s,box-shadow .4s;
-  group:true;
 }
 .card-item:hover{
   transform:translateY(-6px) scale(1.01);
@@ -347,6 +346,14 @@ section{padding:100px 48px;position:relative;z-index:2;}
 .card-item:nth-child(5){grid-column:span 4;}
 .card-item:nth-child(6){grid-column:span 6;}
 .card-item:nth-child(7){grid-column:span 6;}
+/* Cards 8–14 (new Rive entries) */
+.card-item:nth-child(8){grid-column:span 4;}
+.card-item:nth-child(9){grid-column:span 4;}
+.card-item:nth-child(10){grid-column:span 4;}
+.card-item:nth-child(11){grid-column:span 7;}
+.card-item:nth-child(12){grid-column:span 5;}
+.card-item:nth-child(13){grid-column:span 6;}
+.card-item:nth-child(14){grid-column:span 6;}
 
 .card-canvas-wrap{
   position:relative;overflow:hidden;
