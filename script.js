@@ -128,12 +128,12 @@ const CATALOG = [
 // TECH STACK DATA
 // ═══════════════════════════════════════
 const TECH = [
-  {icon:'🎭',name:'Rive',desc:'Character animation, state machines, skeletal rigs',badge:'Core Tool',badgeColor:'rgba(240,180,41,0.1)',badgeText:'#f0b429',glow:'rgba(240,180,41,0.05)'},
-  {icon:'⚛️',name:'React + TypeScript',desc:'Component-based UI with full type safety',badge:'Frontend',badgeColor:'rgba(59,130,246,0.1)',badgeText:'#60a5fa',glow:'rgba(59,130,246,0.05)'},
-  {icon:'📱',name:'PWA',desc:'Progressive Web App — works offline, installs like native',badge:'Platform',badgeColor:'rgba(16,185,129,0.1)',badgeText:'#34d399',glow:'rgba(16,185,129,0.05)'},
-  {icon:'🎨',name:'Photoshop',desc:'Body part isolation, layer export, PNG preparation',badge:'Asset Prep',badgeColor:'rgba(139,92,246,0.1)',badgeText:'#a78bfa',glow:'rgba(139,92,246,0.05)'},
-  {icon:'🦴',name:'Skeletal Rigging',desc:'Bones, constraints, mesh deformation in Rive Editor',badge:'Animation',badgeColor:'rgba(255,107,107,0.1)',badgeText:'#ff6b6b',glow:'rgba(255,107,107,0.05)'},
-  {icon:'⚡',name:'State Machines',desc:'Logic-driven animation transitions without code',badge:'Rive Feature',badgeColor:'rgba(0,212,170,0.1)',badgeText:'#00d4aa',glow:'rgba(0,212,170,0.05)'},
+  {icon:'icons/rive.svg',name:'Rive',desc:'Character animation, state machines, skeletal rigs',badge:'Core Tool',badgeColor:'rgba(240,180,41,0.1)',badgeText:'#f0b429',glow:'rgba(240,180,41,0.05)'},
+  {icon:'icons/react.svg',name:'React + TypeScript',desc:'Component-based UI with full type safety',badge:'Frontend',badgeColor:'rgba(59,130,246,0.1)',badgeText:'#60a5fa',glow:'rgba(59,130,246,0.05)'},
+  {icon:'icons/pwa.svg',name:'PWA',desc:'Progressive Web App — works offline, installs like native',badge:'Platform',badgeColor:'rgba(16,185,129,0.1)',badgeText:'#34d399',glow:'rgba(16,185,129,0.05)'},
+  {icon:'icons/photoshop.svg',name:'Photoshop',desc:'Body part isolation, layer export, PNG preparation',badge:'Asset Prep',badgeColor:'rgba(139,92,246,0.1)',badgeText:'#a78bfa',glow:'rgba(139,92,246,0.05)'},
+  {icon:'icons/bones.svg',name:'Skeletal Rigging',desc:'Bones, constraints, mesh deformation in Rive Editor',badge:'Animation',badgeColor:'rgba(255,107,107,0.1)',badgeText:'#ff6b6b',glow:'rgba(255,107,107,0.05)'},
+  {icon:'icons/statemachine.svg',name:'State Machines',desc:'Logic-driven animation transitions without code',badge:'Rive Feature',badgeColor:'rgba(0,212,170,0.1)',badgeText:'#00d4aa',glow:'rgba(0,212,170,0.05)'},
 ];
 
 // ═══════════════════════════════════════
@@ -379,7 +379,7 @@ TECH.forEach((t,i)=>{
   c.className=`tech-card reveal reveal-delay-${(i%4)+1}`;
   c.style.setProperty('--glow-color',t.glow);
   c.innerHTML=`
-    <span class="tech-icon">${t.icon}</span>
+    <div class="tech-icon"><img src="${t.icon}" alt="${t.name} logo" width="48" height="48" loading="lazy"/></div>
     <div class="tech-name">${t.name}</div>
     <div class="tech-desc">${t.desc}</div>
     <span class="tech-badge" style="background:${t.badgeColor};color:${t.badgeText};">${t.badge}</span>
