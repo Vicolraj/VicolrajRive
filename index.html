@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rive Animation Portfolio — Motion by Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@rive-app/canvas@2.21.6/rive.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-dot"></div>
+    <!-- CHANGE YOUR NAME HERE -->
+    Motion Studio
+  </a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#tech">Tech</a>
+    <a href="#code">Code</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Hire Me →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-eyebrow">Rive Animation · React · PWA</div>
+
+  <h1 class="hero-title">
+    <span class="line"><span class="word">Bringing</span></span>
+    <span class="line"><span class="word accent">Characters</span></span>
+    <span class="line"><span class="word">To Life.</span></span>
+  </h1>
+
+  <!-- CHANGE YOUR NAME / BIO HERE -->
+  <p class="hero-sub">
+    I design and animate interactive Rive characters, then wire them directly into React + PWA frontends. State machines, skeletal rigs, reward systems — production-ready from day one.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#work" class="btn-primary">View My Work ↓</a>
+    <a href="#code" class="btn-ghost">See the Code</a>
+  </div>
+
+  <div class="hero-stats">
+    <!-- CHANGE THESE STATS -->
+    <div class="stat"><div class="stat-num" data-count="11">0</div><div class="stat-label">Characters Rigged</div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><div class="stat-num" data-count="6">0</div><div class="stat-label">Island Scenes</div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><div class="stat-num" data-count="40">0</div><div class="stat-label">Animations Built</div></div>
+    <div class="stat-div"></div>
+    <div class="stat"><div class="stat-num">PWA</div><div class="stat-label">Integration Ready</div></div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee-track">
+    <!-- duplicated for seamless loop -->
+  </div>
+</div>
+
+<!-- WORK / CATALOG -->
+<section id="work">
+  <div class="work-header reveal">
+    <div>
+      <div class="section-eyebrow">Selected Work</div>
+      <h2 class="section-title">Animation Catalog</h2>
+      <p class="section-desc">Interactive Rive animations — drop your own .riv files to replace any card.</p>
+    </div>
+    <div class="filter-pills">
+      <button class="pill active" data-filter="all">All</button>
+      <button class="pill" data-filter="character">Character</button>
+      <button class="pill" data-filter="ui">UI/Reward</button>
+      <button class="pill" data-filter="scene">Scene</button>
+      <button class="pill" data-filter="mascot">Mascot</button>
+    </div>
+  </div>
+
+  <div class="catalog" id="catalog">
+    <!-- cards injected by JS -->
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="tech">
+  <div class="reveal">
+    <div class="section-eyebrow">Stack</div>
+    <h2 class="section-title">Built With Precision</h2>
+  </div>
+  <div class="tech-grid" id="tech-grid">
+    <!-- injected -->
+  </div>
+</section>
+
+<!-- CODE EXAMPLE -->
+<section id="code">
+  <div class="reveal">
+    <div class="section-eyebrow">Implementation</div>
+    <h2 class="section-title">Production-Ready Code</h2>
+    <p class="section-desc">Every .riv file ships with a typed React hook and state machine wiring. Drop in and go.</p>
+  </div>
+
+  <div class="code-split">
+    <div class="code-block reveal reveal-delay-1">
+      <div class="code-header">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <span class="code-filename">useRiveCharacter.tsx</span>
+      </div>
+      <pre><code><span class="cm">// Drop-in Rive hook for any character</span>
+<span class="kw">import</span> { <span class="type">useRive</span>, <span class="type">useStateMachineInput</span> } <span class="kw">from</span> <span class="str">'@rive-app/react-canvas'</span>;
+
+<span class="kw">interface</span> <span class="type">RiveCharacterProps</span> {
+  <span class="prop">rivFile</span>: <span class="type">string</span>;
+  <span class="prop">stateMachine</span>: <span class="type">string</span>;
+  <span class="prop">artboard</span>?: <span class="type">string</span>;
+}
+
+<span class="kw">export function</span> <span class="fn">useRiveCharacter</span>({
+  <span class="prop">rivFile</span>, <span class="prop">stateMachine</span>, <span class="prop">artboard</span>
+}: <span class="type">RiveCharacterProps</span>) {
+
+  <span class="kw">const</span> { <span class="prop">rive</span>, <span class="prop">RiveComponent</span> } = <span class="fn">useRive</span>({
+    <span class="prop">src</span>: rivFile,
+    <span class="prop">stateMachines</span>: stateMachine,
+    <span class="prop">artboard</span>: artboard,
+    <span class="prop">autoplay</span>: <span class="kw">true</span>,
+  });
+
+  <span class="kw">const</span> celebrate = <span class="fn">useStateMachineInput</span>(
+    rive, stateMachine, <span class="str">'celebrate'</span>
+  );
+  <span class="kw">const</span> isFlying = <span class="fn">useStateMachineInput</span>(
+    rive, stateMachine, <span class="str">'isFlying'</span>
+  );
+  <span class="kw">const</span> emotion = <span class="fn">useStateMachineInput</span>(
+    rive, stateMachine, <span class="str">'emotion'</span>
+  );
+
+  <span class="kw">return</span> {
+    <span class="prop">RiveComponent</span>,
+    <span class="fn">triggerCelebrate</span>: () => celebrate?.<span class="fn">fire</span>(),
+    <span class="fn">setFlying</span>: (v: <span class="type">boolean</span>) => {
+      <span class="kw">if</span> (isFlying) isFlying.<span class="prop">value</span> = v;
+    },
+    <span class="fn">setEmotion</span>: (n: <span class="type">number</span>) => {
+      <span class="kw">if</span> (emotion) emotion.<span class="prop">value</span> = n;
+    },
+  };
+}</code></pre>
+    </div>
+
+    <div class="code-features reveal reveal-delay-2">
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(139,92,246,0.1);">⚡</div>
+        <div class="feature-text">
+          <h4>State Machine Driven</h4>
+          <p>Fire any animation via a single input trigger. The frontend never manages animation logic directly — Rive handles all transitions.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(0,212,170,0.1);">🦴</div>
+        <div class="feature-text">
+          <h4>Skeletal Rigging</h4>
+          <p>Every character built with bones + constraints for smooth, responsive movement. Body parts individually animatable at runtime.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(240,180,41,0.1);">🎯</div>
+        <div class="feature-text">
+          <h4>Event Bus Integration</h4>
+          <p>App-level reward events (correct answer, island complete, daily claim) map directly to Rive state machine inputs.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(59,130,246,0.1);">📱</div>
+        <div class="feature-text">
+          <h4>PWA + Cross-Device</h4>
+          <p>WASM caching, lazy loading, and static fallbacks ensure smooth performance on Android, iOS, tablet, and desktop.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background:rgba(236,72,153,0.1);">🔒</div>
+        <div class="feature-text">
+          <h4>Typed Throughout</h4>
+          <p>Full TypeScript types for artboard names, state machine inputs, and trigger events. Zero magic strings in production code.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section id="contact">
+  <div class="cta-box reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Let's Work Together</div>
+    <h2 class="section-title">
+      Ready to bring your<br><span style="background:linear-gradient(135deg,var(--gold),var(--coral));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">characters to life?</span>
+    </h2>
+    <p style="color:var(--text2);margin-top:16px;font-size:1rem;line-height:1.7;">
+      From character illustration with split body parts to full Rive integration inside your PWA — I handle the complete pipeline.
+    </p>
+    <div class="cta-actions">
+      <!-- CHANGE YOUR EMAIL / LINKS HERE -->
+      <a href="mailto:hello@youremail.com" class="btn-primary">Get In Touch →</a>
+      <a href="https://github.com" class="btn-ghost" target="_blank">GitHub ↗</a>
+    </div>
+    <!-- CHANGE YOUR EMAIL HERE -->
+    <p class="cta-email">hello@youremail.com</p>
+  </div>
+</section>
+
+<footer>
+  <!-- CHANGE YOUR NAME HERE -->
+  <p>© 2026 Motion Studio. Built with Rive + React + TypeScript.</p>
+  <div class="footer-links">
+    <a href="#work">Work</a>
+    <a href="#tech">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-canvas anim-canvas" id="modal-canvas-wrap"></div>
+    <div class="modal-info">
+      <div class="card-tags" id="modal-tags"></div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-details" id="modal-details"></div>
+    </div>
+  </div>
+</div>``
+</body>
+</html>
