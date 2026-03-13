@@ -320,8 +320,26 @@ function buildPlaceholder(item, wrap){
 // ═══════════════════════════════════════
 // LOAD RIVE (if .riv file provided)
 // ═══════════════════════════════════════
+
+// Rive CDN exposes window.rive (namespace) with .Rive class, OR window.Rive directly.
+// Support both to handle any CDN version.
+function getRiveClass(){
+  if(typeof window.rive !== 'undefined' && window.rive.Rive) return window.rive.Rive;
+  if(typeof window.Rive !== 'undefined') return window.Rive;
+  return null;
+}
+
+function safeResize(rInst){
+  try{ if(rInst && typeof rInst.resizeDrawingSurfaceToCanvas==='function') rInst.resizeDrawingSurfaceToCanvas(); }catch(_){}
+}
+
 function loadRive(item, canvasEl){
   if(!item.rivFile) return;
+  const RiveClass = getRiveClass();
+  if(!RiveClass){
+    console.error('Rive runtime not found. Check CDN script tag.');
+    return;
+  }
   try{
     // Set canvas pixel dimensions to match its CSS display size (required by Rive)
     const dpr = window.devicePixelRatio || 1;
@@ -336,16 +354,13 @@ function loadRive(item, canvasEl){
       canvas: canvasEl,
       autoplay: true,
       onLoadError: (e) => console.warn('Rive load error for', item.id, e),
-      onLoad: () => {
-        // Resize to canvas after load to ensure correct fit
-        r.resizeDrawingSurfaceToCanvas();
-      },
+      onLoad: () => safeResize(r),
     };
     // Only pass artboard/stateMachines if explicitly set (non-null)
     if(item.artboard) riveParams.artboard = item.artboard;
     if(item.stateMachine) riveParams.stateMachines = item.stateMachine;
 
-    const r = new Rive(riveParams);
+    const r = new RiveClass(riveParams);
 
     // Keep canvas sharp if container is resized
     const ro = new ResizeObserver(() => {
@@ -353,7 +368,7 @@ function loadRive(item, canvasEl){
       if(!p) return;
       canvasEl.width  = Math.round(p.offsetWidth  * dpr);
       canvasEl.height = Math.round(p.offsetHeight * dpr);
-      try{ r.resizeDrawingSurfaceToCanvas(); }catch(_){}
+      safeResize(r);
     });
     ro.observe(canvasEl.parentElement);
   }catch(e){ console.warn('Rive load failed for',item.id,e); }
