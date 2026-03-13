@@ -4,109 +4,213 @@
 const CATALOG = [
   {
     id: 'kai',
-    title: 'Kai the Parrot',
+    title: 'Floral Heart',
     desc: 'Main mascot character for Smash My Preschool. Full skeletal rig with idle breathing, flying intro, wing clap celebration, and shell toss reward burst. 6 body-part layers, state machine driven.',
-    // CHANGE THIS: point to your actual .riv file path, e.g. '/riv/kai_idle.riv'
-    rivFile: null,
-    artboard: 'Kai',
-    stateMachine: 'KaiStateMachine',
+    rivFile: 'riveFiles/heart.riv',
+    artboard: null,
+    stateMachine: null,
     tags: [['character','purple'],['main mascot','gold'],['skeletal rig','teal']],
     filter: 'character',
     animBg: 'anim-bg-1',
-    placeholder: '🦜',
+    placeholder: '💜',
     placeholderAnim: 'char',
     states: ['idle_loop','flying_intro','wing_clap','shell_toss','island_landing'],
-    fileLabel: 'kai_idle.riv',
+    fileLabel: 'heart.riv',
   },
   {
     id: 'zara',
-    title: 'Zara — Sea Explorer',
-    desc: 'Caribbean girl explorer with jump-spin celebration, high-five interaction, and treasure chest reveal. Human child proportions optimised for preschool age 2–5.',
-    rivFile: null,
-    artboard: 'Zara',
-    stateMachine: 'ZaraStateMachine',
-    tags: [['character','purple'],['human child','coral'],['interactive','blue']],
-    filter: 'character',
+    title: 'Let\'s Get Started',
+    desc: 'Onboarding animation — a welcoming intro sequence that guides users into the app experience. Playful motion design with smooth easing and looping idle state.',
+    rivFile: 'riveFiles/letgetstarted.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['UI','teal'],['onboarding','blue'],['interactive','coral']],
+    filter: 'ui',
     animBg: 'anim-bg-2',
     placeholder: '🌊',
     placeholderAnim: 'rings',
-    states: ['idle','jump_spin','high_five','chest_reveal'],
-    fileLabel: 'zara.riv',
+    states: ['idle','intro','exit'],
+    fileLabel: 'letgetstarted.riv',
   },
   {
-    id: 'turtle',
-    title: 'Turtle Buddy — Barbados',
-    desc: 'Island mascot for Coral Island (Barbados). Idle blinking loop, friendly wave, and celebrate burst. 3 animations, fully rigged.',
-    rivFile: null,
-    artboard: 'TurtleBuddy',
-    stateMachine: 'TurtleStateMachine',
-    tags: [['mascot','green'],['Barbados','teal'],['ambient','blue']],
-    filter: 'mascot',
+    id: 'avatar1',
+    title: 'Location Avatar 1',
+    desc: 'Location-to-avatar character reveal animation. Smooth transition from map pin to vibrant character preview. Used in island selection screens.',
+    rivFile: 'riveFiles/locationtoavatar1.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','purple'],['location','coral'],['reveal','teal']],
+    filter: 'character',
     animBg: 'anim-bg-3',
-    placeholder: '🐢',
+    placeholder: '📍',
     placeholderAnim: 'char',
-    states: ['idle_blink','wave','celebrate'],
-    fileLabel: 'turtle_buddy.riv',
+    states: ['idle','reveal','selected'],
+    fileLabel: 'locationtoavatar1.riv',
   },
   {
-    id: 'chest',
-    title: 'Daily Treasure Chest',
-    desc: 'Reward UI component with 4 states: locked, available (glowing aura), opening (light rays burst), and claimed (empty sparkle). Driven by a single state machine.',
-    rivFile: null,
-    artboard: 'TreasureChest',
-    stateMachine: 'ChestStateMachine',
-    tags: [['UI reward','gold'],['state machine','purple'],['4 states','teal']],
-    filter: 'ui',
+    id: 'avatar2',
+    title: 'Location Avatar 2',
+    desc: 'Second location-to-avatar variant with alternate character design. Part of a set of 6 regional characters for the Caribbean island world map.',
+    rivFile: 'riveFiles/locationtoavatar2.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','purple'],['world map','gold'],['variant','blue']],
+    filter: 'character',
     animBg: 'anim-bg-4',
-    placeholder: '💰',
-    placeholderAnim: 'particles',
-    states: ['locked','available','opening','claimed'],
-    fileLabel: 'treasure_chest.riv',
+    placeholder: '🌴',
+    placeholderAnim: 'char',
+    states: ['idle','reveal','selected'],
+    fileLabel: 'locationtoavatar2.riv',
   },
   {
-    id: 'malik',
-    title: 'Malik — Carnival Star',
-    desc: 'Energetic Caribbean boy with drum beat celebration, samba dance loop, and confetti explosion. Custom feather headband with separate bone chain.',
-    rivFile: null,
-    artboard: 'Malik',
-    stateMachine: 'MalikStateMachine',
-    tags: [['character','purple'],['dance','pink'],['carnival','coral']],
+    id: 'avatar3',
+    title: 'Location Avatar 3',
+    desc: 'Third character in the location avatar series. Features unique idle animation and island-specific celebration burst on selection.',
+    rivFile: 'riveFiles/locationtoavatar3.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','coral'],['animation','teal'],['island','green']],
     filter: 'character',
     animBg: 'anim-bg-5',
+    placeholder: '🏝️',
+    placeholderAnim: 'rings',
+    states: ['idle','reveal','selected'],
+    fileLabel: 'locationtoavatar3.riv',
+  },
+  {
+    id: 'avatar4',
+    title: 'Location Avatar 4',
+    desc: 'Fourth avatar character — energetic design with drum-beat idle and confetti burst. Optimised skeletal rig for smooth cross-device performance.',
+    rivFile: 'riveFiles/locationtoavatar4.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','pink'],['dance','purple'],['carnival','gold']],
+    filter: 'character',
+    animBg: 'anim-bg-6',
     placeholder: '🥁',
     placeholderAnim: 'char',
-    states: ['idle','drum_beat','dance_loop','confetti_burst'],
-    fileLabel: 'malik.riv',
+    states: ['idle','reveal','selected'],
+    fileLabel: 'locationtoavatar4.riv',
   },
   {
-    id: 'correct',
-    title: 'Correct Answer Burst',
-    desc: 'Reusable feedback animation — large green checkmark with star burst ring, golden sparkle particles, and confetti shower. Used across all 9 game templates in the PWA.',
-    rivFile: null,
-    artboard: 'CorrectBurst',
-    stateMachine: 'FeedbackStateMachine',
-    tags: [['UI/VFX','teal'],['reusable','green'],['game feedback','blue']],
+    id: 'avatar5',
+    title: 'Location Avatar 5',
+    desc: 'Fifth location avatar — features ocean wave idle loop and treasure chest reveal interaction. Built with layered mesh deformation.',
+    rivFile: 'riveFiles/locationtoavatar5.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','blue'],['ocean','teal'],['interaction','coral']],
+    filter: 'character',
+    animBg: 'anim-bg-7',
+    placeholder: '🌊',
+    placeholderAnim: 'particles',
+    states: ['idle','reveal','selected'],
+    fileLabel: 'locationtoavatar5.riv',
+  },
+  {
+    id: 'avatar6',
+    title: 'Location Avatar 6',
+    desc: 'Sixth and final avatar in the Caribbean island series. Cheerful character with flying intro and shell-toss reward animation.',
+    rivFile: 'riveFiles/locationtoavatar6.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','green'],['mascot','teal'],['reward','gold']],
+    filter: 'mascot',
+    animBg: 'anim-bg-1',
+    placeholder: '🐚',
+    placeholderAnim: 'char',
+    states: ['idle','reveal','selected'],
+    fileLabel: 'locationtoavatar6.riv',
+  },
+  {
+    id: 'pink_pin',
+    title: 'Pink Location Pin',
+    desc: 'Animated map pin UI component in pink/coral. Pulsing drop animation and active glow state. Used on the world map to mark available islands.',
+    rivFile: 'riveFiles/pink_location_pin.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['UI','coral'],['map','pink'],['interactive','teal']],
+    filter: 'ui',
+    animBg: 'anim-bg-2',
+    placeholder: '📍',
+    placeholderAnim: 'rings',
+    states: ['idle','pulse','active'],
+    fileLabel: 'pink_location_pin.riv',
+  },
+  {
+    id: 'splashbg',
+    title: 'Splash Background',
+    desc: 'Full-screen animated splash screen background. Looping ambient scene with particle effects and smooth color transitions — used on app launch.',
+    rivFile: 'riveFiles/splashbg.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['scene','blue'],['ambient loop','purple'],['splash','gold']],
+    filter: 'scene',
+    animBg: 'anim-bg-3',
+    placeholder: '🌌',
+    placeholderAnim: 'particles',
+    states: ['idle_loop','transition','exit'],
+    fileLabel: 'splashbg.riv',
+  },
+  {
+    id: 'stickman',
+    title: 'Stickman Character',
+    desc: 'Lightweight stickman character rig for rapid prototyping and placeholder animation. Includes walk cycle, jump, and wave interactions.',
+    rivFile: 'riveFiles/stickman.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['character','teal'],['prototype','blue'],['lightweight','green']],
+    filter: 'character',
+    animBg: 'anim-bg-4',
+    placeholder: '🧍',
+    placeholderAnim: 'char',
+    states: ['idle','walk','jump','wave'],
+    fileLabel: 'stickman.riv',
+  },
+  {
+    id: 'stumblecrush',
+    title: 'Stumble Crush',
+    desc: 'Game animation for Stumble Crush mechanic — character stumbles, recovers, and crushes target with satisfying squash-and-stretch. High-energy game feedback.',
+    rivFile: 'riveFiles/stumblecrush.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['game','gold'],['VFX','coral'],['feedback','purple']],
+    filter: 'ui',
+    animBg: 'anim-bg-5',
+    placeholder: '💥',
+    placeholderAnim: 'particles',
+    states: ['idle','stumble','crush','celebrate'],
+    fileLabel: 'stumblecrush.riv',
+  },
+  {
+    id: 'white_pin',
+    title: 'White Location Pin',
+    desc: 'Clean white/neutral animated map pin — used for locked or undiscovered islands. Subtle pulse animation becomes active glow when unlocked.',
+    rivFile: 'riveFiles/white_location_pin.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['UI','blue'],['map','teal'],['locked','purple']],
     filter: 'ui',
     animBg: 'anim-bg-6',
-    placeholder: '✅',
+    placeholder: '🔲',
     placeholderAnim: 'rings',
-    states: ['idle','burst','exit'],
-    fileLabel: 'correct_burst.riv',
+    states: ['locked','pulse','unlocked'],
+    fileLabel: 'white_location_pin.riv',
   },
   {
-    id: 'barbados',
-    title: 'Barbados — Coral Island Scene',
-    desc: 'Living background for Island 1. Animated ocean wave loop, turtle idle, coral sway, and tropical fish swim — all as separate Rive layers stacked behind HTML UI.',
-    rivFile: null,
-    artboard: 'BarbadosScene',
-    stateMachine: 'SceneStateMachine',
-    tags: [['scene','blue'],['ambient loop','teal'],['Barbados','coral']],
-    filter: 'scene',
+    id: 'youronetap',
+    title: 'Your One Tap',
+    desc: 'Micro-interaction animation for the one-tap onboarding gesture. Finger tap with ripple effect and glow burst — guides new users through first interaction.',
+    rivFile: 'riveFiles/youronetap.riv',
+    artboard: null,
+    stateMachine: null,
+    tags: [['UI/UX','teal'],['micro-interaction','blue'],['onboarding','green']],
+    filter: 'ui',
     animBg: 'anim-bg-7',
-    placeholder: '🏝️',
-    placeholderAnim: 'particles',
-    states: ['ambient_loop','active','celebration'],
-    fileLabel: 'barbados_scene.riv',
+    placeholder: '👆',
+    placeholderAnim: 'rings',
+    states: ['idle','tap','burst'],
+    fileLabel: 'youronetap.riv',
   },
 ];
 
@@ -219,15 +323,39 @@ function buildPlaceholder(item, wrap){
 function loadRive(item, canvasEl){
   if(!item.rivFile) return;
   try{
-    new Rive({
+    // Set canvas pixel dimensions to match its CSS display size (required by Rive)
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvasEl.parentElement.getBoundingClientRect();
+    const w = rect.width  || canvasEl.parentElement.offsetWidth  || 400;
+    const h = rect.height || canvasEl.parentElement.offsetHeight || 300;
+    canvasEl.width  = Math.round(w * dpr);
+    canvasEl.height = Math.round(h * dpr);
+
+    const riveParams = {
       src: item.rivFile,
       canvas: canvasEl,
-      artboard: item.artboard||undefined,
-      stateMachines: item.stateMachine,
       autoplay: true,
-      fit: Rive.Fit.Contain,
-      alignment: Rive.Alignment.Center,
+      onLoadError: (e) => console.warn('Rive load error for', item.id, e),
+      onLoad: () => {
+        // Resize to canvas after load to ensure correct fit
+        r.resizeDrawingSurfaceToCanvas();
+      },
+    };
+    // Only pass artboard/stateMachines if explicitly set (non-null)
+    if(item.artboard) riveParams.artboard = item.artboard;
+    if(item.stateMachine) riveParams.stateMachines = item.stateMachine;
+
+    const r = new Rive(riveParams);
+
+    // Keep canvas sharp if container is resized
+    const ro = new ResizeObserver(() => {
+      const p = canvasEl.parentElement;
+      if(!p) return;
+      canvasEl.width  = Math.round(p.offsetWidth  * dpr);
+      canvasEl.height = Math.round(p.offsetHeight * dpr);
+      try{ r.resizeDrawingSurfaceToCanvas(); }catch(_){}
     });
+    ro.observe(canvasEl.parentElement);
   }catch(e){ console.warn('Rive load failed for',item.id,e); }
 }
 
@@ -290,8 +418,10 @@ function buildCatalog(items){
     card.appendChild(body);
     container.appendChild(card);
 
-    // Load Rive if file provided
-    if(item.rivFile && innerEl) loadRive(item, innerEl);
+    // Load Rive after layout has been computed
+    if(item.rivFile && innerEl){
+      requestAnimationFrame(() => loadRive(item, innerEl));
+    }
 
     // Click → modal
     card.addEventListener('click',()=>openModal(item));
