@@ -1,6 +1,7 @@
 {
   "routes": [
     { "src": "/riveFiles/(.*)", "dest": "/riveFiles/$1" },
+    { "src": "/icons/(.*)", "dest": "/icons/$1" },
     { "src": "/(.*\\.css)", "dest": "/$1" },
     { "src": "/(.*\\.js)", "dest": "/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
